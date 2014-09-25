@@ -229,7 +229,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                     if ( propInfo[ i ].Name.Equals( "FType" ) )
                     {
                         var intType = ( int ) prop.GetValue( terminal, null );
-                        sb.Append( "DeviceTypeInfo1XPO.SDKEType." + GetZkTypeById( intType ) + ',' );
+                        sb.Append( "DeviceTypeInfo1XPO.SDKEType." + GetSDKTypeById( intType ) + ',' );
                         continue;
                     }
                     if ( propInfo[ i ].Name.Equals( "RiDefault" ) )
@@ -258,7 +258,7 @@ namespace ArmoSystems.Timex.Common.Database" );
             return sb.ToString();
         }
 
-        private static string GetZkTypeById( int id )
+        private static string GetSDKTypeById( int id )
         {
             switch ( id )
             {
@@ -270,6 +270,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                     return "ZK_iFace";
                 case 4:
                     return "C3";
+                case 5:
+                    return "Smartec";
                 default:
                     return "Unknown";
             }
