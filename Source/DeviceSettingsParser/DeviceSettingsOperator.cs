@@ -328,7 +328,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 if ( term == null )
                     continue;
 
-                term.FType = GetIntegerFromCell( "Тип (1-ч/б, 2- цв#, 3-iface, 4 -С3)" );
+                var obsoleteVariantOfType = GetIntegerFromCell( "Тип (1-ч/б, 2- цв#, 3-iface, 4 -С3)" );
+                term.FType = obsoleteVariantOfType != 0 ? obsoleteVariantOfType : GetIntegerFromCell( "Тип(1-ч/б, 2-цв., 3-iface, 4-С3, 5-Smartec)" );
                 term.FMaxUsers = GetIntegerFromCell( "Пользователей" );
                 term.FMaxOtpechatkov = GetIntegerFromCell( "ОП" );
                 term.FMaxLico = GetIntegerFromCell( "Лицо" );
