@@ -336,7 +336,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 }
                 catch ( ArgumentException )
                 {
-                    term.FType = GetIntegerFromCell( "Тип(1-ч/б, 2-цв., 3-iface, 4-С3, 5-Smartec)" );
+                    term.FType = GetIntegerFromCell( "Тип(1-ч/б, 2-цв#, 3-iface, 4-С3, 5-Smartec)" );
                 }
                 term.FMaxUsers = GetIntegerFromCell( "Пользователей" );
                 term.FMaxOtpechatkov = GetIntegerFromCell( "ОП" );
