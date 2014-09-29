@@ -330,6 +330,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 if ( term == null )
                     continue;
 
+                //TODO оставить только функцию в Catch после выпуска 3.11
                 try
                 {
                     term.FType = GetIntegerFromCell( "Тип (1-ч/б, 2- цв#, 3-iface, 4 -С3)" );
