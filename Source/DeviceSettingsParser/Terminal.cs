@@ -180,6 +180,8 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool PdDoorUnblock { get; set; }
         public bool PdVedomiyIdentificationMode { get; set; }
         public bool PdDopSchitivatelIdentificationMode { get; set; }
+        public bool PDActivateOutput { get; set; }
+        public bool PDDeactivateOutput { get; set; }
 
         public bool RiFingerprintOrCodeOrCard { get; set; }
         public bool RiFingerprint { get; set; }
