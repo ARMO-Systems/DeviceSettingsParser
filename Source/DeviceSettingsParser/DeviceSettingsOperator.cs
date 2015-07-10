@@ -20,7 +20,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         private const string Func = "Функции$";
         private const string RejimIden = "Режим идентификации$";
         private readonly List< string > fieldsWithAtributes;
-
         private readonly String fileName;
         private readonly PropertyInfo[] propInfo;
         private readonly List< Terminal > terminalList;
@@ -580,6 +579,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsTimeSyncTimeZone = StringYesToBool( "Часовой пояс", "TsTimeSyncTimeZone" );
 
                 term.TsWiegandEnter = StringYesToBool( "Wiegand вход", "TsWiegandEnter" );
+                term.TsWiegandEnterAutoMatch = StringYesToBool( "Автопределение формата", "TsWiegandEnterAutoMatch" );
+                term.TsWiegandEnterFormatType = StringYesToBool( "Тип Wiegand", "TsWiegandEnterFormatType" );
                 term.TsWiegandEnterFormat = StringYesToBool( "Формат", "TsWiegandEnterFormat" );
                 term.TsWiegandEnterBitsCount = StringYesToBool( "Число бит", "TsWiegandEnterBitsCount" );
                 term.TsWiegandEnterImpulsDuration = StringYesToBool( "Длительность импульса", "TsWiegandEnterImpulsDuration" );
