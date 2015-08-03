@@ -579,7 +579,6 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsTimeSyncTimeZone = StringYesToBool( "Часовой пояс", "TsTimeSyncTimeZone" );
 
                 term.TsWiegandEnter = StringYesToBool( "Wiegand вход", "TsWiegandEnter" );
-                term.TsWiegandEnterAutoMatch = StringYesToBool( "Автопределение формата", "TsWiegandEnterAutoMatch" );
                 term.TsWiegandEnterFormatType = StringYesToBool( "Тип Wiegand", "TsWiegandEnterFormatType" );
                 term.TsWiegandEnterFormat = StringYesToBool( "Формат", "TsWiegandEnterFormat" );
                 term.TsWiegandEnterBitsCount = StringYesToBool( "Число бит", "TsWiegandEnterBitsCount" );

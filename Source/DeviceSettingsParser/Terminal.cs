@@ -31,7 +31,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsTimeSyncTimeZone { get; set; }
         public bool TsTimeSyncSummerWinter { get; set; }
         public bool TsWiegandEnter { get; set; }
-        public bool TsWiegandEnterAutoMatch { get; set; }
         public bool TsWiegandEnterFormatType { get; set; }
         public bool TsWiegandEnterFormat { get; set; }
         public bool TsWiegandEnterBitsCount { get; set; }
