@@ -644,6 +644,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsStatisticsAdmins = StringYesToBool( "Администраторы", "TsStatisticsAdmins" );
                 term.TsStatisticSerialNumber = StringYesToBool( "Серийный номер", "TsStatisticSerialNumber" );
                 term.TsStatisticSoft = StringYesToBool( "Прошивка", "TsStatisticSoft" );
+                term.TsGroup = GetIntegerFromCell( "Группа устройства", "TsGroup" );
 
                 term.comments = currentRow[ "Примечание" ] as string;
 
