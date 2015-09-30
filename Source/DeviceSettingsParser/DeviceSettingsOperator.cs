@@ -392,7 +392,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FDisplayNameOnTerminal = StringYesToBool( "Название на терминале", "FDisplayNameOnTerminal" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
-                term.FServerAddress = StringYesToBool( "Адрес связи" );
+                term.FServerAddress = StringYesToBool( "Адрес сервера" );
             }
         }
 
