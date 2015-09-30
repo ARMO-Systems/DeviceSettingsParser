@@ -142,6 +142,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FAccessToTerminal { get; set; }
         public int FVeinPerEmp { get; set; }
         public bool FCustomWiegand { get; set; }
+        public bool FServerAddress { get; set; }
         public bool PdPunktiDostupa { get; set; }
         public bool PdSettings { get; set; }
         public bool PdSettingsDoorWorkByTimeZone { get; set; }
