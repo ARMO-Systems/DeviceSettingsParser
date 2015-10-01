@@ -392,7 +392,6 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FDisplayNameOnTerminal = StringYesToBool( "Название на терминале", "FDisplayNameOnTerminal" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
-                term.FServerAddress = StringYesToBool( "Адрес сервера" );
             }
         }
 
@@ -645,6 +644,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsStatisticsAdmins = StringYesToBool( "Администраторы", "TsStatisticsAdmins" );
                 term.TsStatisticSerialNumber = StringYesToBool( "Серийный номер", "TsStatisticSerialNumber" );
                 term.TsStatisticSoft = StringYesToBool( "Прошивка", "TsStatisticSoft" );
+                term.TsServerAddress = StringYesToBool( "Адрес сервера", "TsServerAddress" );
+                term.TsServerIP = StringYesToBool( "IP адрес сервера", "TsServerIP" );
+                term.TsServerPort = StringYesToBool( "Порт сервера", "TsServerPort" );
                 term.TsGroup = GetIntegerFromCell( "Группа устройства", "TsGroup" );
 
                 term.comments = currentRow[ "Примечание" ] as string;

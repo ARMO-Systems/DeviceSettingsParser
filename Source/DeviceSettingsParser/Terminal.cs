@@ -91,6 +91,9 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsStatisticsAdmins { get; set; }
         public bool TsStatisticSerialNumber { get; set; }
         public bool TsStatisticSoft { get; set; }
+        public bool TsServerAddress { set; get; }
+        public bool TsServerIP { set; get; }
+        public bool TsServerPort { set; get; }
         public int TsGroup { get; set; }
         public int FType { get; set; }
         public int FMaxUsers { get; set; }
@@ -142,7 +145,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FAccessToTerminal { get; set; }
         public int FVeinPerEmp { get; set; }
         public bool FCustomWiegand { get; set; }
-        public bool FServerAddress { get; set; }
         public bool PdPunktiDostupa { get; set; }
         public bool PdSettings { get; set; }
         public bool PdSettingsDoorWorkByTimeZone { get; set; }
