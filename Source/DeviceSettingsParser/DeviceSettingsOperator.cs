@@ -1,6 +1,4 @@
-﻿//using Excel = Microsoft.Office.Interop.Excel;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -21,7 +19,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         private const string RejimIden = "Режим идентификации$";
         private readonly List< string > fieldsWithAtributes;
 
-        private readonly String fileName;
+        private readonly string fileName;
         private readonly PropertyInfo[] propInfo;
         private readonly List< Terminal > terminalList;
         private DataRow currentRow;
@@ -545,7 +543,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 currentRow = row;
 
                 var term = new Terminal { Name = currentRow[ "Имя" ] as string };
-                if ( ( term.Name == null ) || ( term.Name.EndsWith( "*", StringComparison.Ordinal ) ) )
+                if ( ( term.Name == null ) || term.Name.EndsWith( "*", StringComparison.Ordinal ) )
                     continue;
 
                 term.TcsConnectionConfigs = StringYesToBool( "Настройки соединения с терм#", "TcsConnectionConfigs" );
@@ -645,6 +643,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsStatisticSerialNumber = StringYesToBool( "Серийный номер", "TsStatisticSerialNumber" );
                 term.TsStatisticSoft = StringYesToBool( "Прошивка", "TsStatisticSoft" );
 
+                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на УД", "TsTimezonesPerAccessLevel" );
+                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на терминал", "TsTimezonesPerDevice" );
+
                 term.comments = currentRow[ "Примечание" ] as string;
 
                 terminalList.Add( term );
@@ -703,7 +704,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                     Replace( "КАРТА", "Card" ).
                     Replace( "ЛИЦО", "Face" ).
                     Replace( "ВЕНЫ", "Vein" )
-                : String.Empty;
+                : string.Empty;
         }
 
         private bool IsDefaultBoolValue( string colName )
