@@ -18,7 +18,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         private const string Func = "Функции$";
         private const string RejimIden = "Режим идентификации$";
         private readonly List< string > fieldsWithAtributes;
-
         private readonly string fileName;
         private readonly PropertyInfo[] propInfo;
         private readonly List< Terminal > terminalList;
@@ -578,6 +577,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsTimeSyncTimeZone = StringYesToBool( "Часовой пояс", "TsTimeSyncTimeZone" );
 
                 term.TsWiegandEnter = StringYesToBool( "Wiegand вход", "TsWiegandEnter" );
+                term.TsWiegandEnterFormatType = StringYesToBool( "Тип Wiegand", "TsWiegandEnterFormatType" );
                 term.TsWiegandEnterFormat = StringYesToBool( "Формат", "TsWiegandEnterFormat" );
                 term.TsWiegandEnterBitsCount = StringYesToBool( "Число бит", "TsWiegandEnterBitsCount" );
                 term.TsWiegandEnterImpulsDuration = StringYesToBool( "Длительность импульса", "TsWiegandEnterImpulsDuration" );
@@ -642,6 +642,10 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsStatisticsAdmins = StringYesToBool( "Администраторы", "TsStatisticsAdmins" );
                 term.TsStatisticSerialNumber = StringYesToBool( "Серийный номер", "TsStatisticSerialNumber" );
                 term.TsStatisticSoft = StringYesToBool( "Прошивка", "TsStatisticSoft" );
+                term.TsServerAddress = StringYesToBool( "Адрес сервера", "TsServerAddress" );
+                term.TsServerIP = StringYesToBool( "IP адрес сервера", "TsServerIP" );
+                term.TsServerPort = StringYesToBool( "Порт сервера", "TsServerPort" );
+                term.TsGroup = GetIntegerFromCell( "Группа устройства", "TsGroup" );
 
                 term.TsStatisticFace = GetIntegerFromCell( "Временных зон на УД", "TsTimezonesPerAccessLevel" );
                 term.TsStatisticFace = GetIntegerFromCell( "Временных зон на терминал", "TsTimezonesPerDevice" );

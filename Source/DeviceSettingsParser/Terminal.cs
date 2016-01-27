@@ -4,11 +4,9 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
     {
         public string comments;
         public string Name { get; set; }
-
         public bool TcsConnectionConfigs { get; set; }
         public bool TcsConnectionKey { get; set; }
         public bool TcsConnectionType { get; set; }
-
         public bool TcsEthernet { get; set; }
         public bool TcsEthernetIpAddress { get; set; }
         public bool TcsEthernetIpAddressPort { get; set; }
@@ -16,7 +14,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TcsRs232Rs485Port { get; set; }
         public bool TcsRs232Rs485Speed { get; set; }
         public bool TcsRs232Rs485DeviceAddress { get; set; }
-
         public bool TsConfigs { get; set; }
         public bool TsEthernet { get; set; }
         public bool TsEthernetIpAddress { get; set; }
@@ -29,13 +26,12 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsRs232Rs485DeviceAddress { get; set; }
         public bool TsRs232Allow { get; set; }
         public bool TsRs485Allow { get; set; }
-
         public bool TsTimeSync { get; set; }
         public bool TsTimeSyncAuto { get; set; }
         public bool TsTimeSyncTimeZone { get; set; }
         public bool TsTimeSyncSummerWinter { get; set; }
-
         public bool TsWiegandEnter { get; set; }
+        public bool TsWiegandEnterFormatType { get; set; }
         public bool TsWiegandEnterFormat { get; set; }
         public bool TsWiegandEnterBitsCount { get; set; }
         public bool TsWiegandEnterImpulsDuration { get; set; }
@@ -57,7 +53,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsFaceRecognition11 { get; set; }
         public bool TsRecognition11Only { get; set; }
         public bool TsRecognitionCardOnly { get; set; }
-
         public bool TsEffecting { get; set; }
         public bool TsEffectingDateFormat { get; set; }
         public bool TsEffectingVoiceMessages { get; set; }
@@ -66,7 +61,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsEffectingButtonsSound { get; set; }
         public bool TsEffectingPhotoOutput { get; set; }
         public bool TsEffectingNameOutput { get; set; }
-
         public bool TsOtherSettings { get; set; }
         public bool FVedomiy { get; set; }
         public bool TsOtherSettingsSposobnostPerehodaVRegimBezd { get; set; }
@@ -77,7 +71,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsOtherSettingsWorksCode { get; set; }
         public bool TsOtherSettingsChangeSignal { get; set; }
         public bool TsOtherSettingsAutomaticRecognition { get; set; }
-
         public bool TsUpperMenu { get; set; }
         public bool TsSyncTime { get; set; }
         public bool TsRestart { get; set; }
@@ -98,6 +91,10 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsStatisticsAdmins { get; set; }
         public bool TsStatisticSerialNumber { get; set; }
         public bool TsStatisticSoft { get; set; }
+        public bool TsServerAddress { set; get; }
+        public bool TsServerIP { set; get; }
+        public bool TsServerPort { set; get; }
+        public int TsGroup { get; set; }
         public int TsTimezonesPerDevice { get; set; }
         public int TsTimezonesPerAccessLevel { get; set; }
 
@@ -127,7 +124,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FKodRabot { get; set; }
         public bool FSignalSmeni { get; set; }
         public bool FLetoZima { get; set; }
-
         public bool FSkud { get; set; }
         public int FPunktovDostupa { get; set; }
         public int FProx { get; set; }
@@ -152,7 +148,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FAccessToTerminal { get; set; }
         public int FVeinPerEmp { get; set; }
         public bool FCustomWiegand { get; set; }
-
         public bool PdPunktiDostupa { get; set; }
         public bool PdSettings { get; set; }
         public bool PdSettingsDoorWorkByTimeZone { get; set; }
@@ -182,7 +177,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool PdDoorUnblock { get; set; }
         public bool PdVedomiyIdentificationMode { get; set; }
         public bool PdDopSchitivatelIdentificationMode { get; set; }
-
         public bool RiFingerprintOrCodeOrCard { get; set; }
         public bool RiFingerprint { get; set; }
         public bool RiPin { get; set; }
@@ -208,13 +202,10 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool RiVeinAndCode { get; set; }
         public bool RiVeinAndCardAndCode { get; set; }
         public bool RiVeinOrCodeOrCard { get; set; }
-
         public string RiDefault { get; set; }
         public bool RiEnabled { get; set; }
         public bool RiSupportModes { get; set; }
-
         public bool FShluz { get; set; }
-
         public bool FAvailableAC { get; set; }
         public bool FAvailableTA { get; set; }
     }
