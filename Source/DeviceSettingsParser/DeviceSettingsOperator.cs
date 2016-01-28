@@ -647,8 +647,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsServerPort = StringYesToBool( "Порт сервера", "TsServerPort" );
                 term.TsGroup = GetIntegerFromCell( "Группа устройства", "TsGroup" );
 
-                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на УД", "TsTimezonesPerAccessLevel" );
-                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на терминал", "TsTimezonesPerDevice" );
+                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
+                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
 
                 term.comments = currentRow[ "Примечание" ] as string;
 

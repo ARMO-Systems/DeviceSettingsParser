@@ -95,9 +95,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsServerIP { set; get; }
         public bool TsServerPort { set; get; }
         public int TsGroup { get; set; }
-        public int TsTimezonesPerDevice { get; set; }
-        public int TsTimezonesPerAccessLevel { get; set; }
-
+        
         public int FType { get; set; }
         public int FMaxUsers { get; set; }
         public int FMaxOtpechatkov { get; set; }
@@ -208,5 +206,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FShluz { get; set; }
         public bool FAvailableAC { get; set; }
         public bool FAvailableTA { get; set; }
+        public int FTimezonesPerDevice { get; set; }
+        public int FTimezonesPerAccessLevel { get; set; }
     }
 }
