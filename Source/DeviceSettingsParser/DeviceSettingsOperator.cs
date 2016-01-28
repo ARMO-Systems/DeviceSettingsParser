@@ -328,14 +328,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                     continue;
 
                 //TODO оставить только функцию в Catch после выпуска 3.11
-                try
-                {
-                    term.FType = GetIntegerFromCell( "Тип (1-ч/б, 2- цв#, 3-iface, 4 -С3)" );
-                }
-                catch ( ArgumentException )
-                {
-                    term.FType = GetIntegerFromCell( "Тип(1-ч/б, 2-цв#, 3-iface, 4-С3, 5-Smartec)" );
-                }
+
+                term.FType = GetIntegerFromCell( "Тип(1-ч/б, 2-цв#, 3-iface, 4-С3, 5-Smartec)" );
+
                 term.FMaxUsers = GetIntegerFromCell( "Пользователей" );
                 term.FMaxOtpechatkov = GetIntegerFromCell( "ОП" );
                 term.FMaxLico = GetIntegerFromCell( "Лицо" );
@@ -390,6 +385,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FDisplayNameOnTerminal = StringYesToBool( "Название на терминале", "FDisplayNameOnTerminal" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
+
+                term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
+                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
             }
         }
 
@@ -646,9 +644,6 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsServerIP = StringYesToBool( "IP адрес сервера", "TsServerIP" );
                 term.TsServerPort = StringYesToBool( "Порт сервера", "TsServerPort" );
                 term.TsGroup = GetIntegerFromCell( "Группа устройства", "TsGroup" );
-
-                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
-                term.TsStatisticFace = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
 
                 term.comments = currentRow[ "Примечание" ] as string;
 
