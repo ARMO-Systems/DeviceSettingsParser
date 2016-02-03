@@ -78,6 +78,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsRemoveAdmins { get; set; }
         public bool TsFlushAllData { get; set; }
         public bool TsUpperMenuUpdateFirmware { get; set; }
+        public bool TsClearAlarms { get; set; }
         public bool TsUpperMenuTimexUsb { get; set; }
         public bool TsStatistic { get; set; }
         public bool TsStatisticLastUpdateTime { get; set; }
@@ -95,7 +96,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsServerIP { set; get; }
         public bool TsServerPort { set; get; }
         public int TsGroup { get; set; }
-        
+
         public int FType { get; set; }
         public int FMaxUsers { get; set; }
         public int FMaxOtpechatkov { get; set; }

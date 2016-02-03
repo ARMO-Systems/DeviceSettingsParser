@@ -386,8 +386,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
 
-                term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
-                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
+                //TODO Uncomment after merge with TIM-558
+                /*term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
+                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );*/
             }
         }
 
@@ -626,6 +627,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsRemoveAdmins = StringYesToBool( "Сброс админ# привелегий", "TsRemoveAdmins" );
                 term.TsFlushAllData = StringYesToBool( "Сброс всех данных", "TsFlushAllData" );
                 term.TsUpperMenuUpdateFirmware = StringYesToBool( "Обновление прошивки", "TsUpperMenuUpdateFirmware" );
+                term.TsClearAlarms = StringYesToBool( "Сброс тревог", "TsClearAlarms" );
                 term.TsUpperMenuTimexUsb = StringYesToBool( "Timex <-> USB", "TsUpperMenuTimexUsb" );
 
                 term.TsStatistic = StringYesToBool( "Статистика", "TsStatistic" );
