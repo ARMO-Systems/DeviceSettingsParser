@@ -479,6 +479,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.PdDoorOpen = StringYesToBool( "Открыть" );
                 term.PdDoorUnblock = StringYesToBool( "Разблокировать" );
                 term.PdDoorBlock = StringYesToBool( "Заблокировать" );
+                term.PdClearAlarms = StringYesToBool( "Сброс тревог" );
                 term.PdVedomiyIdentificationMode = StringYesToBool( "Идентификация ведомого", "PdVedomiyIdentificationMode" );
                 term.PdDopSchitivatelIdentificationMode = StringYesToBool( "Идентификация считывателя", "PdDopSchitivatelIdentificationMode" );
             }
@@ -627,7 +628,6 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsRemoveAdmins = StringYesToBool( "Сброс админ# привелегий", "TsRemoveAdmins" );
                 term.TsFlushAllData = StringYesToBool( "Сброс всех данных", "TsFlushAllData" );
                 term.TsUpperMenuUpdateFirmware = StringYesToBool( "Обновление прошивки", "TsUpperMenuUpdateFirmware" );
-                term.TsClearAlarms = StringYesToBool( "Сброс тревог", "TsClearAlarms" );
                 term.TsUpperMenuTimexUsb = StringYesToBool( "Timex <-> USB", "TsUpperMenuTimexUsb" );
 
                 term.TsStatistic = StringYesToBool( "Статистика", "TsStatistic" );

@@ -78,7 +78,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsRemoveAdmins { get; set; }
         public bool TsFlushAllData { get; set; }
         public bool TsUpperMenuUpdateFirmware { get; set; }
-        public bool TsClearAlarms { get; set; }
         public bool TsUpperMenuTimexUsb { get; set; }
         public bool TsStatistic { get; set; }
         public bool TsStatisticLastUpdateTime { get; set; }
@@ -174,6 +173,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool PdDoorOpen { get; set; }
         public bool PdDoorBlock { get; set; }
         public bool PdDoorUnblock { get; set; }
+        public bool PdClearAlarms { get; set; }
         public bool PdVedomiyIdentificationMode { get; set; }
         public bool PdDopSchitivatelIdentificationMode { get; set; }
         public bool RiFingerprintOrCodeOrCard { get; set; }
