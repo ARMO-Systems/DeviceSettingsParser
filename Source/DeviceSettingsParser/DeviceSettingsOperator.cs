@@ -385,10 +385,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FDisplayNameOnTerminal = StringYesToBool( "Название на терминале", "FDisplayNameOnTerminal" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
-
-                //TODO Uncomment after merge with TIM-558
-                /*term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
-                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );*/
+                term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
+                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
             }
         }
 
