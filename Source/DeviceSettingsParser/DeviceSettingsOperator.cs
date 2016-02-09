@@ -373,6 +373,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FAvailableInFreeVersion = StringYesToBool( "Бесплатная версия" );
                 term.FAvailableAC = StringYesToBool( "Timex AC" );
                 term.FAvailableTA = StringYesToBool( "Timex TA" );
+                term.FDoorLicensing = StringYesToBool( "Лицензировать двери" );
                 term.FAlgorithm9 = StringYesToBool( "Алгоритм 9" );
                 term.FAlgorithm10 = StringYesToBool( "Алгоритм 10" );
                 term.FShluz = StringYesToBool( "Шлюз" );
@@ -385,8 +386,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FDisplayNameOnTerminal = StringYesToBool( "Название на терминале", "FDisplayNameOnTerminal" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
-                term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
-                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
+                //TODO Uncomment after merge 
+                //    term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
+                //  term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
             }
         }
 
@@ -477,7 +479,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.PdDoorOpen = StringYesToBool( "Открыть" );
                 term.PdDoorUnblock = StringYesToBool( "Разблокировать" );
                 term.PdDoorBlock = StringYesToBool( "Заблокировать" );
-                term.PdClearAlarms = StringYesToBool( "Сброс тревог" );
+                //term.PdClearAlarms = StringYesToBool( "Сброс тревог" );
                 term.PdVedomiyIdentificationMode = StringYesToBool( "Идентификация ведомого", "PdVedomiyIdentificationMode" );
                 term.PdDopSchitivatelIdentificationMode = StringYesToBool( "Идентификация считывателя", "PdDopSchitivatelIdentificationMode" );
             }
