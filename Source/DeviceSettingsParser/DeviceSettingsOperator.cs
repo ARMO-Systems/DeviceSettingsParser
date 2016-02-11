@@ -387,8 +387,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FVeinPerEmp = GetIntegerFromCell( "Шаблонов вен на сотрудника" );
                 term.FCustomWiegand = StringYesToBool( "Кастомизированный wiegand" );
                 //TODO Uncomment after merge 
-                //    term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
-                //  term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
+                term.FTimezonesPerAccessLevel = GetIntegerFromCell( "Временных зон на УД", "FTimezonesPerAccessLevel" );
+                term.FTimezonesPerDevice = GetIntegerFromCell( "Временных зон на терминал", "FTimezonesPerDevice" );
             }
         }
 
@@ -479,6 +479,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.PdDoorOpen = StringYesToBool( "Открыть" );
                 term.PdDoorUnblock = StringYesToBool( "Разблокировать" );
                 term.PdDoorBlock = StringYesToBool( "Заблокировать" );
+                //TODO
                 //term.PdClearAlarms = StringYesToBool( "Сброс тревог" );
                 term.PdVedomiyIdentificationMode = StringYesToBool( "Идентификация ведомого", "PdVedomiyIdentificationMode" );
                 term.PdDopSchitivatelIdentificationMode = StringYesToBool( "Идентификация считывателя", "PdDopSchitivatelIdentificationMode" );

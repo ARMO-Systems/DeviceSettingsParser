@@ -173,6 +173,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool PdDoorOpen { get; set; }
         public bool PdDoorBlock { get; set; }
         public bool PdDoorUnblock { get; set; }
+        //TODO
         // public bool PdClearAlarms { get; set; }
         public bool PdVedomiyIdentificationMode { get; set; }
         public bool PdDopSchitivatelIdentificationMode { get; set; }
@@ -207,8 +208,8 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FShluz { get; set; }
         public bool FAvailableAC { get; set; }
         public bool FAvailableTA { get; set; }
-        /*    public int FTimezonesPerDevice { get; set; }
-        public int FTimezonesPerAccessLevel { get; set; }*/
+        public int FTimezonesPerDevice { get; set; }
+        public int FTimezonesPerAccessLevel { get; set; }
         public bool FDoorLicensing { get; set; }
     }
 }
