@@ -479,8 +479,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.PdDoorOpen = StringYesToBool( "Открыть" );
                 term.PdDoorUnblock = StringYesToBool( "Разблокировать" );
                 term.PdDoorBlock = StringYesToBool( "Заблокировать" );
-                //TODO
-                //term.PdClearAlarms = StringYesToBool( "Сброс тревог" );
+                term.PdClearAlarms = StringYesToBool( "Сброс тревог" );
                 term.PdVedomiyIdentificationMode = StringYesToBool( "Идентификация ведомого", "PdVedomiyIdentificationMode" );
                 term.PdDopSchitivatelIdentificationMode = StringYesToBool( "Идентификация считывателя", "PdDopSchitivatelIdentificationMode" );
             }
