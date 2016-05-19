@@ -13,6 +13,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
 {
     internal sealed class DeviceSettingsOperator
     {
+        private const string IdentificationModeEnumName = "EIdentificationMode";
         private const string Terminals = "'Меню Терминалы$'";
         private const string Punkti = "'Меню Пункты доступа$'";
         private const string Func = "Функции$";
@@ -89,7 +90,8 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         private string CreateFileDeviceTypeInfo()
         {
             var fileContent = new StringBuilder();
-            fileContent.Append( @"using DevExpress.Xpo;
+            fileContent.Append( @"using ArmoSystems.Timex.SDK.ExternalSystem;
+using DevExpress.Xpo;
 
 namespace ArmoSystems.Timex.Shared.XPO.Source.Devices
 {
@@ -100,7 +102,7 @@ namespace ArmoSystems.Timex.Shared.XPO.Source.Devices
             {
                 fileContent.Append( Environment.NewLine );
                 var fieldName = prop.Name.Substring( 0, 1 ).ToLower() + prop.Name.Substring( 1, prop.Name.Length - 1 );
-                fileContent.Append( string.Format( "        private {0} {1};", prop.Name == "RiDefault" ? "ERejimIdentifikacii" : ConvertToShortType( prop.PropertyType.ToString() ), fieldName ) );
+                fileContent.Append( string.Format( "        private {0} {1};", prop.Name == "RiDefault" ? IdentificationModeEnumName : ConvertToShortType( prop.PropertyType.ToString() ), fieldName ) );
             }
 
             foreach ( var prop in propInfo.OrderBy( prop => prop.Name ) )
@@ -110,7 +112,7 @@ namespace ArmoSystems.Timex.Shared.XPO.Source.Devices
                 var fieldName = prop.Name.Substring( 0, 1 ).ToLower() + prop.Name.Substring( 1, prop.Name.Length - 1 );
 
                 AddAttributes( fileContent, prop.Name );
-                fileContent.Append( string.Format( "        public {0} {1}", prop.Name == "RiDefault" ? "ERejimIdentifikacii" : ConvertToShortType( prop.PropertyType.ToString() ), prop.Name ) );
+                fileContent.Append( string.Format( "        public {0} {1}", prop.Name == "RiDefault" ? IdentificationModeEnumName : ConvertToShortType( prop.PropertyType.ToString() ), prop.Name ) );
                 fileContent.Append( Environment.NewLine );
                 fileContent.Append( "        {" );
                 fileContent.Append( Environment.NewLine );
@@ -154,7 +156,7 @@ namespace ArmoSystems.Timex.Shared.XPO.Source.Devices
         {
             var fileContent = new StringBuilder();
             fileContent.Append( @"using ArmoSystems.Timex.Shared.XPO.Source.Devices;
-using ArmoSystems.Timex.Shared.XPO;
+using ArmoSystems.Timex.SDK.ExternalSystem;
 using DevExpress.Xpo;
 namespace ArmoSystems.Timex.Common.Database" );
             fileContent.Append( Environment.NewLine );
@@ -221,7 +223,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 sb.Append( begin );
                 for ( var i = 0; i < propInfo.Count(); i++ )
                 {
-                    var prop = typeof ( Terminal ).GetProperty( propInfo[ i ].Name );
+                    var prop = typeof( Terminal ).GetProperty( propInfo[ i ].Name );
                     sb.Append( @"/*" + propInfo[ i ].Name.ToLower() + @"*/" );
                     if ( propInfo[ i ].Name.Equals( "FType" ) )
                     {
@@ -231,7 +233,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                     }
                     if ( propInfo[ i ].Name.Equals( "RiDefault" ) )
                     {
-                        sb.Append( "ERejimIdentifikacii." + terminal.RiDefault + ',' );
+                        sb.Append( IdentificationModeEnumName + "." + terminal.RiDefault + ',' );
                         continue;
                     }
                     switch ( prop.PropertyType.ToString() )
@@ -288,7 +290,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 }
                 if ( propInfo[ i ].Name.Equals( "RiDefault" ) )
                 {
-                    args.Append( "ERejimIdentifikacii ridefault," );
+                    args.Append( IdentificationModeEnumName + " ridefault," );
                     continue;
                 }
                 args.Append( ConvertToShortType( propInfo[ i ].PropertyType.ToString() ) + " " + propInfo[ i ].Name.ToLower() );
