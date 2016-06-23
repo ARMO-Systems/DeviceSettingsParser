@@ -91,9 +91,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsStatisticsAdmins { get; set; }
         public bool TsStatisticSerialNumber { get; set; }
         public bool TsStatisticSoft { get; set; }
-        public bool TsServerAddress { set; get; }
-        public bool TsServerIP { set; get; }
-        public bool TsServerPort { set; get; }
         public int TsGroup { get; set; }
 
         public int FType { get; set; }
