@@ -202,6 +202,10 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool RiEnabled { get; set; }
         public bool RiSupportModes { get; set; }
         public bool FShluz { get; set; }
+        public int FMaxReaders { get; set; }
+        public int FMaxReadersInAccessPoint { get; set; }
+        public int FMaxDoorSensors { get; set; }
+        public int FMaxExitButtons { get; set; }
         public bool FAvailableAC { get; set; }
         public bool FAvailableTA { get; set; }
         public int FTimezonesPerDevice { get; set; }
