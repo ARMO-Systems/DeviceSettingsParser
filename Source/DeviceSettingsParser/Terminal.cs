@@ -203,6 +203,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool RiSupportModes { get; set; }
         public bool FShluz { get; set; }
         public int FMaxReaders { get; set; }
+        public int FMaxReadersRS485 { get; set; }
         public int FMaxReadersInAccessPoint { get; set; }
         public int FMaxDoorSensors { get; set; }
         public int FMaxExitButtons { get; set; }
