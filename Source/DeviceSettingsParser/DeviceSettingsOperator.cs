@@ -306,7 +306,6 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FTochekRegistracii = GetIntegerFromCell( "Точки регистрации СУРВ" );
                 term.FMaxReaders = GetIntegerFromCell( "Считыватели Wiegand" );
                 term.FMaxReadersRS485 = GetIntegerFromCell( "Считыватели RS485" );
-                term.FMaxReadersInAccessPoint = GetIntegerFromCell( "Считывателей на пункт доступа" );
                 term.FMaxDoorSensors = GetIntegerFromCell( "Датчики двери" );
                 term.FMaxExitButtons = GetIntegerFromCell( "Кнопки выхода" );
                 term.FVivodPhoto = StringYesToBool( "Вывод фото" );
