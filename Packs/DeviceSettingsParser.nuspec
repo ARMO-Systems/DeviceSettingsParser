@@ -10,5 +10,9 @@
     <files>
         <file src="..\Source\_output\Release\DeviceSettingsParser.exe" target="tools\DeviceSettingsParser.exe" />
         <file src="..\Source\_output\Release\DeviceSettingsParser.exe.config" target="tools\DeviceSettingsParser.exe.config" />
+        <file src="..\Source\_output\Release\ExcelDataReader.DataSet.dll" target="tools\ExcelDataReader.DataSet.dll" />
+        <file src="..\Source\_output\Release\ExcelDataReader.DataSet.xml" target="tools\ExcelDataReader.DataSet.xml" />
+		<file src="..\Source\_output\Release\ExcelDataReader.dll" target="tools\ExcelDataReader.dll" />
+        <file src="..\Source\_output\Release\ExcelDataReader.xml" target="tools\ExcelDataReader.xml" />
     </files>
 </package>
