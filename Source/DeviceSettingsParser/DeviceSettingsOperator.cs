@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using ExcelDataReader;
 
 namespace ArmoSystems.ArmoGet.DeviceSettingsParser
 {
     internal sealed class DeviceSettingsOperator
     {
-        private const string Terminals = "'Меню Терминалы$'";
-        private const string Punkti = "'Меню Пункты доступа$'";
-        private const string Func = "Функции$";
-        private const string RejimIden = "Режим идентификации$";
+        private const string Terminals = "Меню Терминалы";
+        private const string Punkti = "Меню Пункты доступа";
+        private const string Func = "Функции";
+        private const string RejimIden = "Режим идентификации";
+
+        public DeviceSettingsOperator( string file )
+        {
+            fileName = file;
+            PropInfo = new Terminal().GetType().GetProperties();
+            fieldsWithAtributes = new List< string >();
+        }
+
         public readonly List< Terminal > AllTerminals = new List< Terminal >();
         private readonly List< string > fieldsWithAtributes;
         private readonly string fileName;
@@ -25,16 +33,6 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         private DataRow currentRow;
         private string funcs = string.Empty;
         private string shablon = string.Empty;
-
-        public DeviceSettingsOperator( string file )
-        {
-            fileName = file;
-            ConnectionString = GetconnectionString( true );
-            PropInfo = new Terminal().GetType().GetProperties();
-            fieldsWithAtributes = new List< string >();
-        }
-
-        private string ConnectionString { get; set; }
 
         public bool ManageFile()
         {
@@ -225,8 +223,10 @@ namespace ArmoSystems.Timex.Common.Database" );
                     if ( i != PropInfo.Length - 1 )
                         sb.Append( ',' );
                 }
+
                 sb.Append( ");" + Environment.NewLine );
             }
+
             sb.Append( Environment.NewLine + "}" );
             return sb.ToString();
         }
@@ -243,15 +243,18 @@ namespace ArmoSystems.Timex.Common.Database" );
                     args.Append( "DeviceTypeInfo1XPO.SDKEType ftype," );
                     continue;
                 }
+
                 if ( PropInfo[ i ].Name.Equals( "RiDefault" ) )
                 {
                     args.Append( Common.IdentificationModeEnumName + " ridefault," );
                     continue;
                 }
+
                 args.Append( Common.ConvertToShortType( PropInfo[ i ].PropertyType.ToString() ) + " " + PropInfo[ i ].Name.ToLower() );
                 if ( i != PropInfo.Count() - 1 )
                     args.Append( ',' );
             }
+
             args.Append( ')' + Environment.NewLine + '{' + Environment.NewLine );
             args.Append( "var typeSettingsXPO = DeviceTypeInfo1XPO.FindType( session, name ) ?? new DeviceTypeInfo1XPO( session ) { Name = name };" + Environment.NewLine );
             const string obj = "typeSettingsXPO.";
@@ -262,8 +265,10 @@ namespace ArmoSystems.Timex.Common.Database" );
                     args.Append( obj + "SDKType=ftype" + ';' + Environment.NewLine );
                     continue;
                 }
+
                 args.Append( obj + info.Name + '=' + info.Name.ToLower() + ';' + Environment.NewLine );
             }
+
             args.Append( '}' );
             return args.ToString();
         }
@@ -285,7 +290,7 @@ namespace ArmoSystems.Timex.Common.Database" );
 
                 //TODO оставить только функцию в Catch после выпуска 3.11
 
-                term.FType = GetIntegerFromCell( "Тип(1-ч/б, 2-цв#, 3-iface, 4-С3, 5-Smartec)" );
+                term.FType = GetIntegerFromCell( "Тип(1-ч/б, 2-цв., 3-iface, 4-С3, 5-Smartec)" );
 
                 term.FMaxUsers = GetIntegerFromCell( "Пользователей" );
                 term.FMaxOtpechatkov = GetIntegerFromCell( "ОП" );
@@ -311,17 +316,17 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FVivodPhoto = StringYesToBool( "Вывод фото" );
                 term.FVivodImeni = StringYesToBool( "Вывод имени" );
                 term.FZahvatPhoto = StringYesToBool( "Захват фото" );
-                term.FGolosovieSoobsheniya = StringYesToBool( "Голос# cообщ#" );
+                term.FGolosovieSoobsheniya = StringYesToBool( "Голос. cообщ." );
                 term.FSMS = StringYesToBool( "СМС" );
                 term.FKodRabot = StringYesToBool( "Код работ" );
                 term.FSignalSmeni = StringYesToBool( "Сигнал смены" );
                 term.FLetoZima = StringYesToBool( "Переход Лето/Зима" );
                 term.FSkud = StringYesToBool( "СКУД" );
                 term.FPunktovDostupa = GetIntegerFromCell( "Пункты доступа" );
-                term.FProx = GetIntegerFromCell( "Прокс# сч#" );
+                term.FProx = GetIntegerFromCell( "Прокс. сч." );
                 term.FLocalniyZPP = StringYesToBool( "Локальный ЗПП" );
                 term.FVedomiy = StringYesToBool( "Ведомый считыватель" );
-                term.FIspSchKlav = StringYesToBool( "Исп# сч# с клав#" );
+                term.FIspSchKlav = StringYesToBool( "Исп. сч. с клав." );
                 term.FPrazdniki = StringYesToBool( "Праздники" );
                 term.FVremennieZoni = GetIntegerFromCell( "Временные зоны" );
                 term.FGruppiDostupa = StringYesToBool( "Группы доступа" );
@@ -329,7 +334,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FFingerPrintPrinujdenie = twoValuesCell.Item1;
                 term.FCodPrinuzhd = twoValuesCell.Item2;
                 term.FZamok = StringYesToBool( "Замок" );
-                term.FTrevojniyVihod = StringYesToBool( "Трев# Выход" );
+                term.FTrevojniyVihod = StringYesToBool( "Трев. Выход" );
                 term.FAvailableInFreeVersion = StringYesToBool( "Бесплатная версия" );
                 term.FAvailableAC = StringYesToBool( "Timex AC" );
                 term.FAvailableTA = StringYesToBool( "Timex TA" );
@@ -339,8 +344,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FAlgorithm10 = StringYesToBool( "Алгоритм 10" );
                 term.FShluz = StringYesToBool( "Шлюз" );
                 term.FImportTemplates = StringYesToBool( "Импорт шаблонов" );
-                term.FDopVhodov = GetIntegerFromCell( "Доп# входы" );
-                term.FDopVihodov = GetIntegerFromCell( "Доп# выходы" );
+                term.FDopVhodov = GetIntegerFromCell( "Доп. входы" );
+                term.FDopVihodov = GetIntegerFromCell( "Доп. выходы" );
                 term.FIdentificationTypes = StringYesToBool( "Типы идентификации" );
                 term.FUsingZpp = StringYesToBool( "Использование ЗПП" );
                 term.FAccessToTerminal = StringYesToBool( "Доступ к терминалу" );
@@ -416,8 +421,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.PdPunktiDostupa = StringYesToBool( "Пункты доступа", "PdPunktiDostupa" );
                 term.PdSettings = StringYesToBool( "Настройки", "PdSettings" );
                 term.PdSettingsDoorWorkByTimeZone = StringYesToBool( "Работа двери по временной зоне", "PdSettingsDoorWorkByTimeZone" );
-                term.PdSettingsDoorUnlockByTimeZone = StringYesToBool( "Разблокировка двери по врем# зоне", "PdSettingsDoorUnlockByTimeZone" );
-                term.PdSettingsDoorBlockByTimeZone = StringYesToBool( "Блокировка двери по врем# зоне", "PdSettingsDoorBlockByTimeZone" );
+                term.PdSettingsDoorUnlockByTimeZone = StringYesToBool( "Разблокировка двери по врем. зоне", "PdSettingsDoorUnlockByTimeZone" );
+                term.PdSettingsDoorBlockByTimeZone = StringYesToBool( "Блокировка двери по врем. зоне", "PdSettingsDoorBlockByTimeZone" );
                 term.PdSettingsDoorUnlockTimeout = StringYesToBool( "Время разблокировки замка (сек)", "PdSettingsDoorUnlockTimeout" );
                 term.PdSettingsReadingDelay = StringYesToBool( "Задержка считывания (сек)", "PdSettingsReadingDelay" );
                 term.PdSettingsIdentificationMode = StringYesToBool( "Режим идентификации", "PdSettingsIdentificationMode" );
@@ -425,7 +430,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.PdDoorMonitoring = StringYesToBool( "Мониторинг двери", "PdDoorMonitoring" );
                 term.PdDoorMonitoringSensorType = StringYesToBool( "Тип датчика", "PdDoorMonitoringSensorType" );
                 term.PdDoorMonitoringCloseDoorBySensor = StringYesToBool( "Закрывать замок по датчику", "PdDoorMonitoringCloseDoorBySensor" );
-                term.PdDoorMonitoringAlarmOpenDoor = StringYesToBool( "Тревога \"Дверь ост#откр\" через (сек)", "PdDoorMonitoringAlarmOpenDoor" );
+                term.PdDoorMonitoringAlarmOpenDoor = StringYesToBool( "Тревога \"Дверь ост.откр\" через (сек)", "PdDoorMonitoringAlarmOpenDoor" );
                 term.PdDoorMonitoringAlarmExitInterval = StringYesToBool( "Тревожный выход через (сек)", "PdDoorMonitoringAlarmExitInterval" );
                 term.PdDopSchitivatel = StringYesToBool( "Дополнительный считыватель", "PdDopSchitivatel" );
                 term.PdDopSchitivatelVedomiy = StringYesToBool( "Дополнительный ведомый", "PdDopSchitivatelVedomiy" );
@@ -468,16 +473,13 @@ namespace ArmoSystems.Timex.Common.Database" );
 
         private DataTable GetDataFromList( string listName )
         {
-            var connection2 = new OleDbConnection( ConnectionString );
-
-            var command = new OleDbCommand( "SELECT * FROM [" + listName + "]", connection2 );
-            connection2.Open();
-            var da = new OleDbDataAdapter( command );
-
-            var dt = new DataTable();
-
-            da.Fill( dt );
-            return dt;
+            using ( var stream = File.Open( fileName, FileMode.Open, FileAccess.Read ) )
+            {
+                using ( var reader = ExcelReaderFactory.CreateReader( stream ) )
+                {
+                    return reader.AsDataSet( new ExcelDataSetConfiguration { ConfigureDataTable = e => new ExcelDataTableConfiguration { UseHeaderRow = true } } ).Tables[ listName ];
+                }
+            }
         }
 
         private void FillMenuTerminals( string listName )
@@ -492,7 +494,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 if ( string.IsNullOrEmpty( term.Name ) )
                     continue;
 
-                term.TcsConnectionConfigs = StringYesToBool( "Настройки соединения с терм#", "TcsConnectionConfigs" );
+                term.TcsConnectionConfigs = StringYesToBool( "Настройки соединения с терм.", "TcsConnectionConfigs" );
                 term.TcsConnectionKey = StringYesToBool( "Ключ связи", "TcsConnectionKey" );
                 term.TcsConnectionType = StringYesToBool( "Тип связи", "TcsConnectionType" );
 
@@ -536,7 +538,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsWiegandExitErrorCodeChecker = StringYesToBool( "Код ошибки (чек-бокс)", "TsWiegandExitErrorCodeChecker" );
                 term.TsWiegandExitErrorCode = StringYesToBool( "Значение", "TsWiegandExitErrorCode" );
                 term.TsWiegandExitObjectCodeChecker = StringYesToBool( "Код объекта (чек-бокс)", "TsWiegandExitObjectCodeChecker" );
-                term.TsWiegandExitObjectCode = StringYesToBool( "Значение1", "TsWiegandExitObjectCode" );
+                term.TsWiegandExitObjectCode = StringYesToBool( "Значение", "TsWiegandExitObjectCode" );
                 term.TsWiegandExitImpulsDuration = StringYesToBool( "Длительность импульса1", "TsWiegandExitImpulsDuration" );
                 term.TsWiegandExitImpulsInterval = StringYesToBool( "Интервал импульса1", "TsWiegandExitImpulsInterval" );
                 term.TsWiegandExitDataType = StringYesToBool( "Тип данных выхода", "TsWiegandExitDataType" );
@@ -572,7 +574,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsSyncTime = StringYesToBool( "Синхронизовать время", "TsSyncTime" );
                 term.TsRestart = StringYesToBool( "Перезагрузить", "TsRestart" );
                 term.TsShutdown = StringYesToBool( "Выключить", "TsShutdown" );
-                term.TsRemoveAdmins = StringYesToBool( "Сброс админ# привелегий", "TsRemoveAdmins" );
+                term.TsRemoveAdmins = StringYesToBool( "Сброс админ. привелегий", "TsRemoveAdmins" );
                 term.TsFlushAllData = StringYesToBool( "Сброс всех данных", "TsFlushAllData" );
                 term.TsUpperMenuUpdateFirmware = StringYesToBool( "Обновление прошивки", "TsUpperMenuUpdateFirmware" );
                 term.TsUpperMenuTimexUsb = StringYesToBool( "Timex <-> USB", "TsUpperMenuTimexUsb" );
@@ -647,13 +649,13 @@ namespace ArmoSystems.Timex.Common.Database" );
             var colDefault = dt.Columns.Cast< DataColumn >().FirstOrDefault( col => IsDefaultBoolValue( col.ColumnName ) );
             return colDefault != null
                 ? colDefault.ColumnName.Replace( "&", "And" ).
-                    Replace( "/", "Or" ).
-                    Replace( "ОП", "Fingerprint" ).
-                    Replace( "КОД", "Code" ).
-                    Replace( "ПИН", "Pin" ).
-                    Replace( "КАРТА", "Card" ).
-                    Replace( "ЛИЦО", "Face" ).
-                    Replace( "ВЕНЫ", "Vein" )
+                             Replace( "/", "Or" ).
+                             Replace( "ОП", "Fingerprint" ).
+                             Replace( "КОД", "Code" ).
+                             Replace( "ПИН", "Pin" ).
+                             Replace( "КАРТА", "Card" ).
+                             Replace( "ЛИЦО", "Face" ).
+                             Replace( "ВЕНЫ", "Vein" )
                 : string.Empty;
         }
 
@@ -675,13 +677,6 @@ namespace ArmoSystems.Timex.Common.Database" );
                     fieldsWithAtributes.Add( property );
                 return value;
             }
-        }
-
-        private string GetconnectionString( bool is2007 )
-        {
-            return is2007
-                ? @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties=\"Excel 8.0;HDR=YES;IMEX=1;\""
-                : @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fileName + ";Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\"";
         }
     }
 }
