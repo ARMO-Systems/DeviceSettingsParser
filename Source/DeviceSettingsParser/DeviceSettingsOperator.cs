@@ -401,6 +401,9 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.RiVeinAndCardAndCode = StringYesToBool( "ВЕНЫ&КАРТА&КОД" );
                 term.RiVeinOrCodeOrCard = StringYesToBool( "ВЕНЫ/КОД/КАРТА" );
                 term.RiDefault = GetDefaultRejimIdentifikacii( dt );
+                term.RiPalm = StringYesToBool( "Ладонь" );
+                term.RiPalmAndFingerprint = StringYesToBool( "Ладонь&Отпечаток" );
+                term.RiCodeOrFingerprintOrPalm = StringYesToBool( "Код/Отпечаток/Ладонь" );
             }
         }
 
@@ -584,6 +587,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.TsStatisticDeviceTime = StringYesToBool( "Время на устройстве", "TsStatisticDeviceTime" );
                 term.TsStatisticUsers = GetIntegerFromCell( "Пользователи", "TsStatisticUsers" );
                 term.TsStatisticFingerPrints = GetIntegerFromCell( "Шаблоны", "TsStatisticFingerPrints" );
+                term.TsStatisticPlams = GetIntegerFromCell( "Ладонь", "TsStatisticPlams" );
                 term.TsStatisticFace = GetIntegerFromCell( "Лицо", "TsStatisticFace" );
                 term.TsStatisticCards = GetIntegerFromCell( "Карта", "TsStatisticCards" );
                 term.TsStatisticCode = GetIntegerFromCell( "Код", "TsStatisticCode" );
@@ -655,7 +659,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                              Replace( "ПИН", "Pin" ).
                              Replace( "КАРТА", "Card" ).
                              Replace( "ЛИЦО", "Face" ).
-                             Replace( "ВЕНЫ", "Vein" )
+                             Replace( "ВЕНЫ", "Vein" ).
+                             Replace( "Ладонь", "Palm" )
                 : string.Empty;
         }
 

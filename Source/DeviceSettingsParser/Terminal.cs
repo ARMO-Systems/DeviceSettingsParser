@@ -84,6 +84,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool TsStatisticDeviceTime { get; set; }
         public int TsStatisticUsers { get; set; }
         public int TsStatisticFingerPrints { get; set; }
+        public int TsStatisticPlams { get; set; }
         public int TsStatisticFace { get; set; }
         public int TsStatisticCards { get; set; }
         public int TsStatisticCode { get; set; }
@@ -178,6 +179,9 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool RiPin { get; set; }
         public bool RiCode { get; set; }
         public bool RiCard { get; set; }
+        public bool RiPalm { get; set; }
+        public bool RiPalmAndFingerprint { get; set; }
+        public bool RiCodeOrFingerprintOrPalm { get; set; }
         public bool RiFingerprintAndCard { get; set; }
         public bool RiFingerprintOrCode { get; set; }
         public bool RiFingerprintOrCard { get; set; }
