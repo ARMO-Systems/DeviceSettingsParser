@@ -400,6 +400,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.RiVeinAndCode = StringYesToBool( "ВЕНЫ&КОД" );
                 term.RiVeinAndCardAndCode = StringYesToBool( "ВЕНЫ&КАРТА&КОД" );
                 term.RiVeinOrCodeOrCard = StringYesToBool( "ВЕНЫ/КОД/КАРТА" );
+                term.RiFingerprintOrCodeOrFace = StringYesToBool( "ОП/КОД/ЛИЦО" );
                 term.RiDefault = GetDefaultRejimIdentifikacii( dt );
                 term.RiPalm = StringYesToBool( "Ладонь" );
                 term.RiPalmAndFingerprint = StringYesToBool( "Ладонь&Отпечаток" );

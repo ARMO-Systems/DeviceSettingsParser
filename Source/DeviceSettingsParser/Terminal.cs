@@ -202,6 +202,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool RiVeinAndCode { get; set; }
         public bool RiVeinAndCardAndCode { get; set; }
         public bool RiVeinOrCodeOrCard { get; set; }
+        public bool RiFingerprintOrCodeOrFace { get; set; }
         public string RiDefault { get; set; }
         public bool RiEnabled { get; set; }
         public bool RiSupportModes { get; set; }
