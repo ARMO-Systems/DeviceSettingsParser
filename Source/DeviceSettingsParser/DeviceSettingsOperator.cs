@@ -407,6 +407,8 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.RiCodeOrFingerprintOrPalm = StringYesToBool( "КОД/ОП/Ладонь" );
                 term.RiFaceAndFingerprint = StringYesToBool("ЛИЦО&ОП");
                 term.RiFingerprintAndCodeAndFace = StringYesToBool("ОП&КОД&ЛИЦО");
+                term.RiFingerprintAndCardAndFace = StringYesToBool("ОП&КАРТА&ЛИЦО");
+                term.RiFingerprintOrCardOrFaceOrCode = StringYesToBool("ОП/КАРТА/ЛИЦО/КОД");
             }
         }
 
