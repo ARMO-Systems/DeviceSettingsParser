@@ -405,10 +405,12 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.RiPalm = StringYesToBool( "Ладонь" );
                 term.RiPalmAndFingerprint = StringYesToBool( "Ладонь&ОП" );
                 term.RiCodeOrFingerprintOrPalm = StringYesToBool( "КОД/ОП/Ладонь" );
-                term.RiFaceAndFingerprint = StringYesToBool("ЛИЦО&ОП");
-                term.RiFingerprintAndCodeAndFace = StringYesToBool("ОП&КОД&ЛИЦО");
-                term.RiFingerprintAndCardAndFace = StringYesToBool("ОП&КАРТА&ЛИЦО");
-                term.RiFingerprintOrCardOrFaceOrCode = StringYesToBool("ОП/КАРТА/ЛИЦО/КОД");
+                term.RiFaceAndFingerprint = StringYesToBool( "ЛИЦО&ОП" );
+                term.RiFingerprintAndCodeAndFace = StringYesToBool( "ОП&КОД&ЛИЦО" );
+                term.RiFingerprintAndCardAndFace = StringYesToBool( "ОП&КАРТА&ЛИЦО" );
+                term.RiFingerprintOrCardOrFaceOrCode = StringYesToBool( "ОП/КАРТА/ЛИЦО/КОД" );
+                term.RiCodeOrFaceOrPalm = StringYesToBool( "КОД/ЛИЦО/Ладонь" );
+                term.RiPalmAndFace = StringYesToBool( "Ладонь&ЛИЦО" );
             }
         }
 

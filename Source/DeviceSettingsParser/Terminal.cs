@@ -221,5 +221,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool RiFingerprintAndCodeAndFace { get; set; }
         public bool RiFingerprintAndCardAndFace { get; set; }
         public bool RiFingerprintOrCardOrFaceOrCode { get; set; }
+        public bool RiCodeOrFaceOrPalm { get; set; }
+        public bool RiPalmAndFace { get; set; }
     }
 }
