@@ -338,7 +338,7 @@ namespace ArmoSystems.Timex.Common.Database" );
                 term.FAvailableInFreeVersion = StringYesToBool( "Бесплатная версия" );
                 term.FAvailableAC = StringYesToBool( "Timex AC" );
                 term.FAvailableTA = StringYesToBool( "Timex TA" );
-                term.FDoorLicensing = StringYesToBool( "Лицензировать двери" );
+                term.FReadersLicensing = StringYesToBool( "Лицензировать считыватели" );
                 term.FCheckVendor = StringYesToBool( "Проверять производителя" );
                 term.FAlgorithm9 = StringYesToBool( "Алгоритм 9" );
                 term.FAlgorithm10 = StringYesToBool( "Алгоритм 10" );

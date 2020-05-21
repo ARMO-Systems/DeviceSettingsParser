@@ -215,7 +215,7 @@ namespace ArmoSystems.ArmoGet.DeviceSettingsParser
         public bool FAvailableTA { get; set; }
         public int FTimezonesPerDevice { get; set; }
         public int FTimezonesPerAccessLevel { get; set; }
-        public bool FDoorLicensing { get; set; }
+        public bool FReadersLicensing { get; set; }
         public bool FCheckVendor { get; set; }
         public bool RiFaceAndFingerprint { get; set; }
         public bool RiFingerprintAndCodeAndFace { get; set; }
